@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123532">
+  <meta name="description" content="Yuhang Wang's academic homepage. Research on mathematical reasoning in language models, chain-of-thought evaluation, and training data selection.">
+  <title>Yuhang Wang | Academic Homepage</title>
+  <link rel="stylesheet" href="./site.css">
+  <script src="./landscape.js" defer></script>
+  <script src="./site.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="layout">
+    <header class="profile">
+      <div class="profile-inner">
+        <div class="identity">
+          <div class="signature" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <h1>Yuhang <em>Wang</em></h1>
+          <p>Language model research</p>
+          <a class="scholar" href="https://scholar.google.com/citations?user=hoF_ejUAAAAJ&amp;hl=en">Google Scholar</a>
+          <a class="scholar" href="https://github.com/Patrisam">GitHub</a>
+        </div>
+        <nav aria-label="Page sections">
+          <a href="#about">About</a>
+          <a href="#publications">Publications</a>
+          <a href="#research">Research note</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="about" id="about" aria-labelledby="about-title">
+        <h2 class="section-label" id="about-title">About me</h2>
+        <p class="statement">I study how language models <em>reason through mathematics.</em></p>
+        <p class="bio">A model can arrive at the right answer through a faulty chain of reasoning. I’m interested in how to evaluate the intermediate steps and how to choose the examples that models learn from. My collaborators and I explore these questions in <a href="#entrocot">EntroCoT</a>.</p>
+      </section>
+
+      <section id="publications" class="publications" aria-labelledby="publications-title">
+        <h2 id="publications-title">Selected publications</h2>
+        <article id="entrocot" class="paper">
+          <p class="paper-meta"><time datetime="2026-01-07">January 2026</time><span aria-hidden="true">/</span>arXiv preprint</p>
+          <h3><a href="https://arxiv.org/abs/2601.03769">EntroCoT: Enhancing Chain-of-Thought via Adaptive Entropy-Guided Segmentation</a></h3>
+          <p class="authors">Zihang Li, <strong>Yuhang Wang</strong>, Yikun Zong, Wenhan Yu, Xiaokun Yuan, Runhan Jiang, Zirui Liu, Tong Yang, and Arthur Jiang</p>
+          <p class="summary">We split a reasoning trace where the model is uncertain, then sample continuations from each prefix to estimate how much a step contributes to the final answer. These estimates help us select traces for fine-tuning.</p>
+          <div class="paper-links" aria-label="Paper resources">
+            <a href="https://arxiv.org/abs/2601.03769">arXiv</a>
+            <a href="https://arxiv.org/pdf/2601.03769">PDF</a>
+            <button type="button" aria-expanded="false" aria-controls="citation" id="cite">BibTeX <span class="expander" aria-hidden="true"></span></button>
+          </div>
+          <div id="citation" class="citation" hidden>
+            <pre id="bibtex" tabindex="0">@misc{li2026entrocot,
+  title = {{EntroCoT}: Enhancing Chain-of-Thought via Adaptive Entropy-Guided Segmentation},
+  author = {Li, Zihang and Wang, Yuhang and Zong, Yikun and Yu, Wenhan and Yuan, Xiaokun and Jiang, Runhan and Liu, Zirui and Yang, Tong and Jiang, Arthur},
+  year = {2026},
+  eprint = {2601.03769},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.AI},
+  url = {https://arxiv.org/abs/2601.03769}
+}</pre>
+            <button type="button" id="copy">Copy citation</button>
+            <span role="status" id="copy-status"></span>
+          </div>
+        </article>
+      </section>
+
+      <section id="research" class="note" aria-labelledby="note-title">
+        <h2 id="note-title">Research note</h2>
+        <h3>What changes when we filter reasoning traces?</h3>
+        <p>In our NuminaMath experiment, Qwen2.5-Math-1.5B trained on 480,000 selected traces averaged <strong>46.05%</strong> accuracy across six benchmarks. Direct fine-tuning on all 859,000 traces averaged <strong>40.88%</strong>. <a href="https://arxiv.org/html/2601.03769v3#S4.T1">See Table 1</a>.</p>
+        <details class="demo">
+          <summary>Explore a token entropy trace</summary>
+          <figure aria-labelledby="plot-title">
+            <figcaption id="plot-title">Token entropy <span>Illustrative traces</span></figcaption>
+            <canvas id="landscape" role="img" aria-label="Synthetic entropy curves showing variation in uncertainty along token sequences.">Illustrative token entropy curves.</canvas>
+            <div class="plot-controls">
+              <label for="boundaries"><input type="checkbox" id="boundaries"> Show boundaries</label>
+              <p id="plot-note" aria-live="polite">Peaks show where the next token is harder to predict.</p>
+            </div>
+          </figure>
+        </details>
+      </section>
+      <footer><span>© 2026 Yuhang Wang</span><a href="#top">Back to top</a></footer>
+    </main>
+  </div>
+</body>
+</html>
